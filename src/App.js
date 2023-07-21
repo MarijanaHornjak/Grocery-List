@@ -2,6 +2,7 @@ import { useState } from "react";
 import { nanoid } from "nanoid";
 import Form from "./Form";
 import "./index.css";
+import GroceryList from "./GroceryList";
 
 function App() {
   const [items, setItems] = useState([]);
@@ -14,9 +15,14 @@ function App() {
     };
     setItems([...items, newItem]);
   };
+  const removeGrocery = (itemId) => {
+    const newItems = items.filter((item) => item.id !== itemId);
+    setItems(newItems);
+  };
   return (
     <section className="center-section">
       <Form items={items} addGrocery={addGrocery} />
+      <GroceryList items={items} removeGrocery={removeGrocery} />
     </section>
   );
 }
