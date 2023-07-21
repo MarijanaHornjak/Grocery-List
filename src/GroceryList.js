@@ -1,7 +1,7 @@
 import React from "react";
 import SingleGrocery from "./SingleGrocery";
 
-const GroceryList = ({ items, removeGrocery }) => {
+const GroceryList = ({ items, removeGrocery, editGrocery }) => {
   return (
     <div className="grocery-list">
       {items.map((item) => {
@@ -10,6 +10,7 @@ const GroceryList = ({ items, removeGrocery }) => {
             key={item.id}
             item={item}
             removeGrocery={removeGrocery}
+            editGrocery={editGrocery}
           />
         );
       })}
